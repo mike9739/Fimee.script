@@ -12,6 +12,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     Double resultado;
     boolean decimal = false;
     boolean suma = false;
+    boolean resta = false;
+    boolean division = false;
+    boolean multiplicacion = false;
 
 
     @Override
@@ -52,12 +55,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mult.setOnClickListener(this);
         Button div = (Button) findViewById(R.id.btdivision);
         div.setOnClickListener(this);
-        Button desc = (Button) findViewById(R.id.btdesc);
-        desc.setOnClickListener(this);
         Button equal = (Button) findViewById(R.id.btequal);
         equal.setOnClickListener(this);
-        Button percent = (Button) findViewById(R.id.btpercent);
-        percent.setOnClickListener(this);
         Button clear = (Button) findViewById(R.id.btclear);
         clear.setOnClickListener(this);
 
@@ -66,7 +65,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void onClick(View v) {
-        TextView screen = (TextView)findViewById(R.id.TVResult);
+        TextView screen = findViewById(R.id.TVResult);
         int selection = v.getId();
         String num = screen.getText().toString();
         try {
@@ -102,46 +101,71 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     screen.setText(num + "9");
                     break;
                 case R.id.btdec:
-                    if (decimal == false) {
+                    if (!decimal) {
                         screen.setText(num + ".");
                         decimal = true;
-                    } else return;
+                    }
+                    else return;
                     break;
 
                 case R.id.btless:
+                    resta = true;
                     numeros[0] = Double.parseDouble(num);
-                    screen.setText(num + "-");
+                    screen.setText("");
                     decimal = false;
+
                     break;
                 case R.id.btsum:
                     suma = true;
                     numeros[0] = Double.parseDouble(num);
-                    screen.setText(num + "+");
+                    screen.setText("");
                     decimal = false;
                     break;
                 case R.id.btdivision:
+                    division = true;
                     numeros[0] = Double.parseDouble(num);
-                    screen.setText(num + "/");
+                    screen.setText("");
                     decimal = false;
                     break;
                 case R.id.btmult:
+                    multiplicacion = true;
                     numeros[0] = Double.parseDouble(num);
-                    screen.setText(num + "*");
+                    screen.setText("");
                     decimal = false;
                     break;
-                case R.id.btpercent:
-                    numeros[0] = Double.parseDouble(num);
-                    double result = numeros[0]*100/numeros[1];
-                    screen.setText(String.valueOf(result));
-                    decimal=false;
-                    break;
-                case R.id.btequal:
-                    if (suma)
-                    {
-                        resultado = numeros[1] + numeros[2];
-                        screen.setText((String.valueOf(resultado)));
-                    }
 
+                case R.id.btequal:
+                  numeros[1]=Double.parseDouble(num);
+                  if (resta)
+                  {
+                      resultado = numeros[0]-numeros[1];
+                      screen.setText(String.valueOf(resultado));
+                  }
+                  else if(suma)
+                  {
+                      resultado = numeros[0]+numeros[1];
+                      screen.setText(String.valueOf(resultado));
+                  }
+                  else if (division)
+                  {
+                      resultado = numeros[0]/numeros[1];
+                      screen.setText(String.valueOf(resultado));
+                  }
+                  else if (multiplicacion)
+                  {
+                      resultado = numeros[0]*numeros[1];
+                      screen.setText(String.valueOf(resultado));
+                  }
+                  decimal = false;
+                  suma = false;
+                  division = false;
+                  resta=false;
+                  multiplicacion = false;
+                  break;
+                case R.id.btclear:
+                    screen.setText("");
+                    decimal = false;
+                    break;
             }
 
         }

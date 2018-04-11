@@ -143,29 +143,12 @@
         android:text="*" />
 
     <Button
-        android:id="@+id/btdesc"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/btequal"
-        android:layout_marginTop="15dp"
-        android:layout_toEndOf="@+id/btequal"
-        android:text="Desc" />
-
-    <Button
-        android:id="@+id/btpercent"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/btdesc"
-        android:layout_toStartOf="@+id/btdesc"
-        android:text="%" />
-
-    <Button
         android:id="@+id/btclear"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/btpercent"
-        android:layout_alignBottom="@+id/btpercent"
-        android:layout_toStartOf="@+id/btpercent"
+        android:layout_below="@+id/btmult"
+        android:layout_marginTop="16dp"
+        android:layout_toEndOf="@+id/btequal"
         android:text="C" />
 
     <TextView
@@ -174,5 +157,5 @@
         android:layout_height="100dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="27dp" />
+        android:layout_marginTop="28dp" />
 </android.widget.RelativeLayout>
