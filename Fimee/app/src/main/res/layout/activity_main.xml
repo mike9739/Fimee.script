@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#ffffff"
     tools:context="script.fimee.fimee.MainActivity">
 
     <Button
@@ -149,6 +150,7 @@
         android:layout_below="@+id/btmult"
         android:layout_marginTop="16dp"
         android:layout_toEndOf="@+id/btequal"
+        android:background="#0997F6"
         android:text="C" />
 
     <TextView
@@ -157,5 +159,6 @@
         android:layout_height="100dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="28dp" />
+        android:layout_marginTop="28dp"
+        android:background="#BBB5B5" />
 </android.widget.RelativeLayout>
